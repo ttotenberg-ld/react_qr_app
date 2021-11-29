@@ -63,24 +63,6 @@ function App() {
           <span>The Background flag is OFF!</span>
         )}
       </p>
-      <div className="card w-75">
-        <div className="card-body">
-          <h5 className="card-title">Backend Feature Flag Example</h5>
-          <p className="card-text">
-            When flag is toggled on you click it saves to database-1, when
-            toggled off it saves to databse-2
-          </p>
-          <button
-            type="button"
-            // onClick={() => {
-            //   saveBtn();
-            // }}
-            className="saveBtn btn btn-primary"
-          >
-            Save
-          </button>
-        </div>
-      </div>
     </div>
   );
 }
