@@ -6,9 +6,9 @@ const qrCodeHome = ({ flags, ldClient /*, ...otherProps */ }) => {
   let showFeature = ldClient.variation("reactQRCode");
 
   return showFeature ? (
-    <QRCode value="www.launchdarkly.com" />
+    <QRCode value="https://nfinnegan.github.io/react_node_ff/" />
   ) : (
-    <div>Flag off</div>
+    <div></div>
   );
 };
 
