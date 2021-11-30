@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import osmo from "./images/osmo_black.png";
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import QRCode from "./components/qrCode";
@@ -38,7 +39,9 @@ function App() {
       <br />
       <br />
       <QRCode />
-      <img src={logo} className="App-logo" alt="logo" />
+      <br />
+      <br />
+      <img src={osmo} className="App-logo" alt="logo" />
       <br />
       <br />
       <p>
