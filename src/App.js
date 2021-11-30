@@ -11,15 +11,23 @@ function App() {
 
   useEffect(() => {
     // welcomeMessage();
-    setColorBoolean("");
-    setHeaderStyle("App-header");
+    setHeaderStyle("Gray-app-header");
     const updateBackGroundColor = () => {
       if (reactBackgroundColor === "purple") {
-        console.log("Flag is ON");
-        setColorBoolean("true");
-        setHeaderStyle("New-app-header");
-      } else {
-        console.log("Flag is off");
+        console.log("Background is purple");
+        setHeaderStyle("Purple-app-header");
+
+      } else if (reactBackgroundColor === "blue") {
+        console.log("Background is blue");
+        setHeaderStyle("Blue-app-header");
+
+      } else if (reactBackgroundColor === "red") {
+        console.log("Background is red");
+        setHeaderStyle("Red-app-header");
+      }
+        else {
+        setHeaderStyle("Gray-app-header");
+        console.log("Background is gray");
       }
       return reactBackgroundColor;
     };
@@ -42,15 +50,11 @@ function App() {
       <br></br>
       <br></br>
       <QRCode />
-        <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo" alt="logo" />
       <br></br>
       <br></br>
       <p>
-        {colorBoolean ? (
-          <span>The Background flag is ON!</span>
-        ) : (
-          <span>The Background flag is OFF!</span>
-        )}
+      <span>The background color is {reactBackgroundColor}!</span>
       </p>
     </div>
   );
