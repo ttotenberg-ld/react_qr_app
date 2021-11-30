@@ -8,6 +8,11 @@
   pointer-events: none;
 }
 
+.LD-logo {
+  padding: 5px;
+  max-width: 100%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -15,7 +20,7 @@
 }
 
 .gray-app-header {
-  background-color: #282c34;
+  background-color: #9799a0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,7 +31,7 @@
 }
 
 .purple-app-header {
-  background-color: #7e0b98;
+  background-color: #9a31b1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -48,7 +53,7 @@
 }
 
 .red-app-header {
-  background-color: #9d0000;
+  background-color: #840000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -16,6 +16,7 @@ function App() {
     setHeaderStyle("gray-app-header");
     const updateBackGroundColor = () => {
 
+      // Sets the class name to "purple-app-header", "blue-app-header", etc.
       const headerStyle = reactBackgroundColor + "-app-header";
       setHeaderStyle(headerStyle)
       
@@ -38,17 +39,12 @@ function App() {
   return (
     <div className={headerStyle}>
       <br />
-      <img src={ldlogo} alt="logo" />
+      <img src={ldlogo} className="LD-logo" alt="logo" />
       <br />
       <QRCode />
       <br />
       <br />
       <img src={osmo} className="App-logo" alt="logo" />
-      <br />
-      <br />
-      <p>
-      <span>The background color is {reactBackgroundColor}!</span>
-      </p>
     </div>
   );
 }
