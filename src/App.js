@@ -6,29 +6,17 @@ import { useFlags } from "launchdarkly-react-client-sdk";
 
 function App() {
   const [headerStyle, setHeaderStyle] = useState("App-header");
-  const [colorBoolean, setColorBoolean] = useState("");
+  // const [colorBoolean, setColorBoolean] = useState("");
   const { reactBackgroundColor } = useFlags();
 
   useEffect(() => {
     // welcomeMessage();
-    setHeaderStyle("Gray-app-header");
+    setHeaderStyle("gray-app-header");
     const updateBackGroundColor = () => {
-      if (reactBackgroundColor === "purple") {
-        console.log("Background is purple");
-        setHeaderStyle("Purple-app-header");
 
-      } else if (reactBackgroundColor === "blue") {
-        console.log("Background is blue");
-        setHeaderStyle("Blue-app-header");
-
-      } else if (reactBackgroundColor === "red") {
-        console.log("Background is red");
-        setHeaderStyle("Red-app-header");
-      }
-        else {
-        setHeaderStyle("Gray-app-header");
-        console.log("Background is gray");
-      }
+      const headerStyle = reactBackgroundColor + "-app-header";
+      setHeaderStyle(headerStyle)
+      
       return reactBackgroundColor;
     };
     updateBackGroundColor();
@@ -47,12 +35,12 @@ function App() {
 
   return (
     <div className={headerStyle}>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
       <QRCode />
       <img src={logo} className="App-logo" alt="logo" />
-      <br></br>
-      <br></br>
+      <br />
+      <br />
       <p>
       <span>The background color is {reactBackgroundColor}!</span>
       </p>
