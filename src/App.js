@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import osmo from "./images/osmo_black.png";
+import ldlogo from "./images/ld_logo.png";
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import QRCode from "./components/qrCode";
@@ -37,6 +38,7 @@ function App() {
   return (
     <div className={headerStyle}>
       <br />
+      <img src={ldlogo} alt="logo" />
       <br />
       <QRCode />
       <br />
