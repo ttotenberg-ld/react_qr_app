@@ -1,7 +1,7 @@
 {
   "name": "react_node_ff",
   "version": "0.1.0",
-  "homepage": "https://nfinnegan.github.io/react_node_ff",
+  "homepage": "https://ttotenberg-ld.github.io/react_qr_app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
