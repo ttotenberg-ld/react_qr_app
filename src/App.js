@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import osmo from "./images/osmo_black.png";
 import ldlogo from "./images/ld_logo.png";
 import "./App.css";
@@ -7,16 +6,14 @@ import QRCode from "./components/qrCode";
 import { useFlags } from "launchdarkly-react-client-sdk";
 
 function App() {
-  const [headerStyle, setHeaderStyle] = useState("App-header");
-  // const [colorBoolean, setColorBoolean] = useState("");
+  const [headerStyle, setHeaderStyle] = useState("gray-app-header");
   const { reactBackgroundColor } = useFlags();
 
   useEffect(() => {
-    // welcomeMessage();
     setHeaderStyle("gray-app-header");
     const updateBackGroundColor = () => {
 
-      // Sets the class name to "purple-app-header", "blue-app-header", etc.
+      // Sets the className to "purple-app-header", "blue-app-header", etc.
       const headerStyle = reactBackgroundColor + "-app-header";
       setHeaderStyle(headerStyle)
       
@@ -24,17 +21,6 @@ function App() {
     };
     updateBackGroundColor();
   }, [reactBackgroundColor]);
-
-  // const saveBtn = () => {
-  //   fetch("/flag?")
-  //     .then((data) => console.log(data, "check terminal for message"))
-  //     .catch((err) => console.log(err));
-  // };
-  // const welcomeMessage = () => {
-  //   fetch("/api")
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data.message));
-  // };
 
   return (
     <div className={headerStyle}>
