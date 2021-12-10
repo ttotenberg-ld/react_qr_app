@@ -1,6 +1,6 @@
 import osmo from "./images/osmo_black.png";
 import ldlogo from "./images/ld_logo_white.png";
-import toggle from "./images/toggle_light.png"
+import toggle from "./images/toggle.png"
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import QRCode from "./components/qrCode";
