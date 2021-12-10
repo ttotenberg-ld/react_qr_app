@@ -9,9 +9,11 @@ const qrCodeHome = ({ flags, ldClient /*, ...otherProps */ }) => {
   
   return showFeature ? (
     <div>
-      <span><center>Scan me!</center></span>
       <br />
-      <QRCode value={QRURL} />
+      <span><center>Scan me!</center></span>
+      <div className="qr-wrapper">
+        <QRCode value={QRURL} />
+      </div>
     </div>
   ) : (
     <div></div>

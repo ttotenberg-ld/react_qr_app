@@ -1,5 +1,6 @@
 import osmo from "./images/osmo_black.png";
-import ldlogo from "./images/ld_logo.png";
+import ldlogo from "./images/ld_logo_white.png";
+import toggle from "./images/toggle_light.png"
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import QRCode from "./components/qrCode";
@@ -24,14 +25,21 @@ function App() {
 
   return (
     <div className={headerStyle}>
-      <br />
-      <img src={ldlogo} className="LD-logo" alt="logo" />
-      <br />
-      <QRCode />
-      <br />
-      <br />
-      <img src={osmo} className="App-logo" alt="logo" />
+      <div className="black-header">
+        <img src={ldlogo} className="LD-logo" alt="logo" />
+      </div>
+      {/* <br /> */}
+      <div className={headerStyle}>
+        <QRCode />
+        <br />
+        <br />
+        <img src={osmo} className="App-logo" alt="logo" />
+        <br />
+        <br />
+        <img src={toggle} className="toggle-logo" alt="toggle" />
+      </div>
     </div>
+
   );
 }
 
