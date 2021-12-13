@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react_qr_app/static/css/main.68e5a8d2.chunk.css",
+    "main.css": "/react_qr_app/static/css/main.6a4668e4.chunk.css",
     "main.js": "/react_qr_app/static/js/main.2dac86a5.chunk.js",
     "main.js.map": "/react_qr_app/static/js/main.2dac86a5.chunk.js.map",
     "runtime-main.js": "/react_qr_app/static/js/runtime-main.a32d5ce0.js",
@@ -10,7 +10,7 @@
     "static/js/3.3699f9d1.chunk.js": "/react_qr_app/static/js/3.3699f9d1.chunk.js",
     "static/js/3.3699f9d1.chunk.js.map": "/react_qr_app/static/js/3.3699f9d1.chunk.js.map",
     "index.html": "/react_qr_app/index.html",
-    "static/css/main.68e5a8d2.chunk.css.map": "/react_qr_app/static/css/main.68e5a8d2.chunk.css.map",
+    "static/css/main.6a4668e4.chunk.css.map": "/react_qr_app/static/css/main.6a4668e4.chunk.css.map",
     "static/js/2.586c16b2.chunk.js.LICENSE.txt": "/react_qr_app/static/js/2.586c16b2.chunk.js.LICENSE.txt",
     "static/media/ld_logo_white.c7ccd94b.png": "/react_qr_app/static/media/ld_logo_white.c7ccd94b.png",
     "static/media/ld_logo_white_old.a7492e3d.png": "/react_qr_app/static/media/ld_logo_white_old.a7492e3d.png",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.a32d5ce0.js",
     "static/js/2.586c16b2.chunk.js",
-    "static/css/main.68e5a8d2.chunk.css",
+    "static/css/main.6a4668e4.chunk.css",
     "static/js/main.2dac86a5.chunk.js"
   ]
 }
