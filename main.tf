@@ -55,6 +55,82 @@ resource "launchdarkly_feature_flag" "react_qr_code" {
     name        = "False"
   }
 
-  default_on_variation  = "true"
-  default_off_variation = "false"
+  default_on_variation  = true
+  default_off_variation = false
+}
+
+resource "launchdarkly_feature_flag" "parent_branding" {
+  project_key = "YOUR_PROJECT_KEY"
+  key         = "reactParentBrand"
+  name        = "React Parent Brand"
+
+  variation_type = "boolean"
+  variations {
+    value       = true
+    name        = "New"
+  }
+  variations {
+    value       = false
+    name        = "Old"
+  }
+
+  default_on_variation  = true
+  default_off_variation = false
+}
+
+resource "launchdarkly_feature_flag" "child_header" {
+  project_key = "YOUR_PROJECT_KEY"
+  key         = "reactChildHeaderLogo"
+  name        = "React Child Header Logo"
+
+  variation_type = "boolean"
+  variations {
+    value       = true
+    name        = "New"
+  }
+  variations {
+    value       = false
+    name        = "Old"
+  }
+
+  default_on_variation  = true
+  default_off_variation = false
+}
+
+resource "launchdarkly_feature_flag" "child_spinny" {
+  project_key = "YOUR_PROJECT_KEY"
+  key         = "reactChildSpinnyLogo"
+  name        = "React Child Spinny Logo"
+
+  variation_type = "boolean"
+  variations {
+    value       = true
+    name        = "New"
+  }
+  variations {
+    value       = false
+    name        = "Old"
+  }
+
+  default_on_variation  = true
+  default_off_variation = false
+}
+
+resource "launchdarkly_feature_flag" "child_toggle" {
+  project_key = "YOUR_PROJECT_KEY"
+  key         = "reactChildToggle"
+  name        = "React Child Toggle"
+
+  variation_type = "boolean"
+  variations {
+    value       = true
+    name        = "New"
+  }
+  variations {
+    value       = false
+    name        = "Old"
+  }
+
+  default_on_variation  = true
+  default_off_variation = false
 }

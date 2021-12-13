@@ -17,8 +17,14 @@ Want to use GitHub Pages to publish your own copy of this? You've come to the ri
 1. In `src/index.js`, modify `CLIENTKEY` to be your own LaunchDarkly client-side SDK key
 
 ### Creating LaunchDarkly flags
-1. You can either use the LaunchDarkly Terraform integration with `main.tf` in the root directory, replacing the `access_token` and `project_key` values. (Careful, project_key appears twice!)
-1. Alternatively, you can manually create the flags in your project. Flag one needs a key of `reactBackgroundColor`, with `gray`, `purple`, `blue`, and `red` as string variations. Flag two is a boolean flag, with a key of `reactQRCode`.
+1. You can either use the LaunchDarkly Terraform integration with `main.tf` in the root directory, replacing the `access_token` and `project_key` values. (Careful, project_key appears multiple times!)
+1. Alternatively, you can manually create the flags in your project. You need the following flags:
+    1. A string flag with a key of `reactBackgroundColor`, with `gray`, `purple`, `blue`, and `red` as string variations. 
+    1. Boolean flag, with a key of `reactQRCode`.
+    1. Boolean flag, with a key of `reactParentBrand`.
+    1. Boolean flag, with a key of `reactChildHeaderLogo`.
+    1. Boolean flag, with a key of `reactChildSpinnyLogo`.
+    1. Boolean flag, with a key of `reactChildToggle`.
 
 ### Testing
 1. To test that it's working locally, run `npm start` in the root directory of your project
