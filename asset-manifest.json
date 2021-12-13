@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react_qr_app/static/css/main.68e5a8d2.chunk.css",
-    "main.js": "/react_qr_app/static/js/main.25242dda.chunk.js",
-    "main.js.map": "/react_qr_app/static/js/main.25242dda.chunk.js.map",
+    "main.js": "/react_qr_app/static/js/main.2dac86a5.chunk.js",
+    "main.js.map": "/react_qr_app/static/js/main.2dac86a5.chunk.js.map",
     "runtime-main.js": "/react_qr_app/static/js/runtime-main.a32d5ce0.js",
     "runtime-main.js.map": "/react_qr_app/static/js/runtime-main.a32d5ce0.js.map",
     "static/js/2.586c16b2.chunk.js": "/react_qr_app/static/js/2.586c16b2.chunk.js",
@@ -13,12 +13,15 @@
     "static/css/main.68e5a8d2.chunk.css.map": "/react_qr_app/static/css/main.68e5a8d2.chunk.css.map",
     "static/js/2.586c16b2.chunk.js.LICENSE.txt": "/react_qr_app/static/js/2.586c16b2.chunk.js.LICENSE.txt",
     "static/media/ld_logo_white.c7ccd94b.png": "/react_qr_app/static/media/ld_logo_white.c7ccd94b.png",
-    "static/media/toggle.1d752285.png": "/react_qr_app/static/media/toggle.1d752285.png"
+    "static/media/ld_logo_white_old.a7492e3d.png": "/react_qr_app/static/media/ld_logo_white_old.a7492e3d.png",
+    "static/media/rocketship_dark.713e5318.png": "/react_qr_app/static/media/rocketship_dark.713e5318.png",
+    "static/media/toggle.1d752285.png": "/react_qr_app/static/media/toggle.1d752285.png",
+    "static/media/toggle_old.09554e17.png": "/react_qr_app/static/media/toggle_old.09554e17.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a32d5ce0.js",
     "static/js/2.586c16b2.chunk.js",
     "static/css/main.68e5a8d2.chunk.css",
-    "static/js/main.25242dda.chunk.js"
+    "static/js/main.2dac86a5.chunk.js"
   ]
 }
