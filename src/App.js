@@ -1,10 +1,12 @@
 import osmo from "./images/osmo_black.png";
-import ldlogo from "./images/ld_logo_white.png";
 import toggle from "./images/toggle.png"
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import QRCode from "./components/qrCode";
 import { useFlags } from "launchdarkly-react-client-sdk";
+import HeaderLDLogo from "./components/headerLogo";
+import SpinnyLogo from "./components/spinnyLogo";
+import Toggle from "./components/toggle";
 
 function App() {
   const [headerStyle, setHeaderStyle] = useState("gray-app-header");
@@ -26,17 +28,18 @@ function App() {
   return (
     <div className={headerStyle}>
       <div className="black-header">
-        <img src={ldlogo} className="LD-logo" alt="logo" />
+        <HeaderLDLogo />
       </div>
-      {/* <br /> */}
       <div className={headerStyle}>
         <QRCode />
         <br />
         <br />
-        <img src={osmo} className="App-logo" alt="logo" />
+        {/* <img src={osmo} className="App-logo" alt="logo" /> */}
+        <SpinnyLogo />
         <br />
         <br />
-        <img src={toggle} className="toggle-logo" alt="toggle" />
+        {/* <img src={toggle} className="toggle-logo" alt="toggle" /> */}
+        <Toggle />
       </div>
     </div>
 
