@@ -1,5 +1,5 @@
-import osmo from "./images/osmo_black.png";
-import toggle from "./images/toggle.png"
+//import osmo from "assets/osmo_black.png";
+//import toggle from "./images/toggle.png";
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import QRCode from "./components/qrCode";
@@ -15,11 +15,10 @@ function App() {
   useEffect(() => {
     setHeaderStyle("gray-app-header");
     const updateBackGroundColor = () => {
-
       // Sets the className to "purple-app-header", "blue-app-header", etc.
       const headerStyle = reactBackgroundColor + "-app-header";
-      setHeaderStyle(headerStyle)
-      
+      setHeaderStyle(headerStyle);
+
       return reactBackgroundColor;
     };
     updateBackGroundColor();
@@ -34,15 +33,12 @@ function App() {
         <QRCode />
         <br />
         <br />
-        {/* <img src={osmo} className="App-logo" alt="logo" /> */}
         <SpinnyLogo />
         <br />
         <br />
-        {/* <img src={toggle} className="toggle-logo" alt="toggle" /> */}
         <Toggle />
       </div>
     </div>
-
   );
 }
 
