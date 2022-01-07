@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Want to use GitHub Pages to publish your own copy of this? You've come to the right place!
 
 ### Duplicating the repository and creating a GitHub Page
-1. [Duplicate this repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository) into your own GitHub repo
+1. Fork this repository
 1. Run `npm install` in your local root directory of the project
 1. In your GitHub repository, go to Settings > Pages and create a GitHub Page. Copy the URL of your GitHub Page, for use in the next section.
 
