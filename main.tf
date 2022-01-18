@@ -2,14 +2,14 @@ terraform {
   required_providers {
     launchdarkly = {
       source = "launchdarkly/launchdarkly"
-      version = "~> 1.0"
+      version = "~> 2.0"
     }
   }
   required_version = "~> 0.13.0"
 }
 
 provider "launchdarkly" {
-  version     = "~> 1.0"
+  version     = "~> 2.0"
   access_token = "YOUR_API_TOKEN"
 }
 
@@ -36,8 +36,14 @@ resource "launchdarkly_feature_flag" "react_background_color" {
     name        = "Red"
   }
 
-  default_on_variation  = "purple"
-  default_off_variation = "gray"
+  defaults {
+    on_variation  = 1
+    off_variation = 0
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
 }
 
 resource "launchdarkly_feature_flag" "react_qr_code" {
@@ -55,8 +61,14 @@ resource "launchdarkly_feature_flag" "react_qr_code" {
     name        = "False"
   }
 
-  default_on_variation  = true
-  default_off_variation = false
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
 }
 
 resource "launchdarkly_feature_flag" "parent_branding" {
@@ -74,8 +86,14 @@ resource "launchdarkly_feature_flag" "parent_branding" {
     name        = "Old"
   }
 
-  default_on_variation  = true
-  default_off_variation = false
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
 }
 
 resource "launchdarkly_feature_flag" "child_header" {
@@ -93,8 +111,14 @@ resource "launchdarkly_feature_flag" "child_header" {
     name        = "Old"
   }
 
-  default_on_variation  = true
-  default_off_variation = false
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
 }
 
 resource "launchdarkly_feature_flag" "child_spinny" {
@@ -112,8 +136,14 @@ resource "launchdarkly_feature_flag" "child_spinny" {
     name        = "Old"
   }
 
-  default_on_variation  = true
-  default_off_variation = false
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
 }
 
 resource "launchdarkly_feature_flag" "child_toggle" {
@@ -131,6 +161,12 @@ resource "launchdarkly_feature_flag" "child_toggle" {
     name        = "Old"
   }
 
-  default_on_variation  = true
-  default_off_variation = false
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
 }
