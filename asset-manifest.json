@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/react_qr_app/static/css/main.6a4668e4.chunk.css",
-    "main.js": "/react_qr_app/static/js/main.108dfa52.chunk.js",
-    "main.js.map": "/react_qr_app/static/js/main.108dfa52.chunk.js.map",
+    "main.css": "/react_qr_app/static/css/main.f17eee1a.chunk.css",
+    "main.js": "/react_qr_app/static/js/main.f3496b08.chunk.js",
+    "main.js.map": "/react_qr_app/static/js/main.f3496b08.chunk.js.map",
     "runtime-main.js": "/react_qr_app/static/js/runtime-main.4bca6aa5.js",
     "runtime-main.js.map": "/react_qr_app/static/js/runtime-main.4bca6aa5.js.map",
-    "static/js/2.a190dd32.chunk.js": "/react_qr_app/static/js/2.a190dd32.chunk.js",
-    "static/js/2.a190dd32.chunk.js.map": "/react_qr_app/static/js/2.a190dd32.chunk.js.map",
+    "static/js/2.18f361ac.chunk.js": "/react_qr_app/static/js/2.18f361ac.chunk.js",
+    "static/js/2.18f361ac.chunk.js.map": "/react_qr_app/static/js/2.18f361ac.chunk.js.map",
     "static/js/3.cda485f3.chunk.js": "/react_qr_app/static/js/3.cda485f3.chunk.js",
     "static/js/3.cda485f3.chunk.js.map": "/react_qr_app/static/js/3.cda485f3.chunk.js.map",
     "index.html": "/react_qr_app/index.html",
-    "static/css/main.6a4668e4.chunk.css.map": "/react_qr_app/static/css/main.6a4668e4.chunk.css.map",
-    "static/js/2.a190dd32.chunk.js.LICENSE.txt": "/react_qr_app/static/js/2.a190dd32.chunk.js.LICENSE.txt",
+    "static/css/main.f17eee1a.chunk.css.map": "/react_qr_app/static/css/main.f17eee1a.chunk.css.map",
+    "static/js/2.18f361ac.chunk.js.LICENSE.txt": "/react_qr_app/static/js/2.18f361ac.chunk.js.LICENSE.txt",
+    "static/media/heart.3d7839e5.svg": "/react_qr_app/static/media/heart.3d7839e5.svg",
     "static/media/ld_logo_white.c7ccd94b.png": "/react_qr_app/static/media/ld_logo_white.c7ccd94b.png",
     "static/media/ld_logo_white_old.a7492e3d.png": "/react_qr_app/static/media/ld_logo_white_old.a7492e3d.png",
-    "static/media/rocketship_dark.713e5318.png": "/react_qr_app/static/media/rocketship_dark.713e5318.png",
     "static/media/toggle.1d752285.png": "/react_qr_app/static/media/toggle.1d752285.png",
     "static/media/toggle_old.09554e17.png": "/react_qr_app/static/media/toggle_old.09554e17.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4bca6aa5.js",
-    "static/js/2.a190dd32.chunk.js",
-    "static/css/main.6a4668e4.chunk.css",
-    "static/js/main.108dfa52.chunk.js"
+    "static/js/2.18f361ac.chunk.js",
+    "static/css/main.f17eee1a.chunk.css",
+    "static/js/main.f3496b08.chunk.js"
   ]
 }
