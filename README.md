@@ -20,11 +20,11 @@ Want to use GitHub Pages to publish your own copy of this? You've come to the ri
 1. You can either use the LaunchDarkly Terraform integration with `main.tf` in the root directory, replacing the `access_token` and `project_key` values. (Careful, project_key appears multiple times!)
 1. Alternatively, you can manually create the flags in your project. You need the following flags:
     1. A string flag with a key of `reactBackgroundColor`, with `gray`, `purple`, `blue`, and `red` as string variations. 
+    1. A string flag with a key of `reactCustomerLogo`, with string variations pointing to URLs of image.
     1. Boolean flag, with a key of `reactQRCode`.
     1. Boolean flag, with a key of `reactParentBrand`.
     1. Boolean flag, with a key of `reactChildHeaderLogo`.
     1. Boolean flag, with a key of `reactChildToggle`.
-    1. A string flag with a key of `reactCustomerLogo`, with string variations pointing to URLs of image.
     1. Boolean flag, with a key of `reactShowCustomerLogo`.
     1. Boolean flag, with a key of `reactShowHeart`.
 
