@@ -170,3 +170,80 @@ resource "launchdarkly_feature_flag" "child_toggle" {
     using_environment_id = true
   }
 }
+
+
+resource "launchdarkly_feature_flag" "customer_logo" {
+  project_key = "YOUR_PROJECT_KEY"
+  key         = "reactCustomerLogo"
+  name        = "Customer Logo"
+
+  variation_type = "string"
+  variations {
+    value       = "https://www.link_to_your_logo.png"
+    name        = "Our Logo"
+  }
+  variations {
+    value       = "https://www.link_to_another_image.png"
+    name        = "Some Other Image"
+  }
+
+  defaults {
+    on_variation  = 1
+    off_variation = 0
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
+}
+
+
+resource "launchdarkly_feature_flag" "show_customer_logo" {
+  project_key = "YOUR_PROJECT_KEY"
+  key         = "reactShowCustomerLogo"
+  name        = "Show Customer Logo"
+
+  variation_type = "boolean"
+  variations {
+    value       = true
+    name        = "True"
+  }
+  variations {
+    value       = false
+    name        = "False"
+  }
+
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
+}
+
+resource "launchdarkly_feature_flag" "show_heart" {
+  project_key = "YOUR_PROJECT_KEY"
+  key         = "reactShowHeart"
+  name        = "Show Heart"
+
+  variation_type = "boolean"
+  variations {
+    value       = true
+    name        = "True"
+  }
+  variations {
+    value       = false
+    name        = "False"
+  }
+
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
+}

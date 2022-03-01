@@ -12,6 +12,23 @@
   max-width: 100%;
 }
 
+.heart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%
+}
+
+.customer-logo {
+  padding: 5px;
+  max-width: 95%;
+  max-height: 125px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 .toggle-logo {
   height: 400px;
   pointer-events: none;
@@ -38,7 +55,7 @@
 }
 
 .gray-app-header {
-  background-color: #9799a0;
+  background-color: #dedede;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -23,8 +23,10 @@ Want to use GitHub Pages to publish your own copy of this? You've come to the ri
     1. Boolean flag, with a key of `reactQRCode`.
     1. Boolean flag, with a key of `reactParentBrand`.
     1. Boolean flag, with a key of `reactChildHeaderLogo`.
-    1. Boolean flag, with a key of `reactChildSpinnyLogo`.
     1. Boolean flag, with a key of `reactChildToggle`.
+    1. A string flag with a key of `reactCustomerLogo`, with string variations pointing to URLs of image.
+    1. Boolean flag, with a key of `reactShowCustomerLogo`.
+    1. Boolean flag, with a key of `reactShowHeart`.
 
 ### Testing
 1. To test that it's working locally, run `npm start` in the root directory of your project

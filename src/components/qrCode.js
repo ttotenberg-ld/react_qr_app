@@ -10,7 +10,7 @@ const qrCodeHome = ({ flags, ldClient /*, ...otherProps */ }) => {
   return showFeature ? (
     <div>
       <br />
-      <span><center>Scan me!</center></span>
+      <span style={{ color: 'black' }}><center>Scan me!</center></span>
       <div className="qr-wrapper">
         <QRCode value={QRURL} />
       </div>

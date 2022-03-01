@@ -1,11 +1,10 @@
-//import osmo from "assets/osmo_black.png";
-//import toggle from "./images/toggle.png";
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import QRCode from "./components/qrCode";
 import { useFlags } from "launchdarkly-react-client-sdk";
 import HeaderLDLogo from "./components/headerLogo";
-import SpinnyLogo from "./components/spinnyLogo";
+import Heart from "./components/heart";
+import CustomerLogo from "./components/customerLogo";
 import Toggle from "./components/toggle";
 
 function App() {
@@ -30,11 +29,9 @@ function App() {
         <HeaderLDLogo />
       </div>
       <div className={headerStyle}>
+        <Heart />
+        <CustomerLogo />
         <QRCode />
-        <br />
-        <br />
-        <SpinnyLogo />
-        <br />
         <br />
         <Toggle />
       </div>
