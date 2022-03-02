@@ -7,7 +7,6 @@ const customerLogo = ({ flags, ldClient /*, ...otherProps */ }) => {
 
   return showFeature ? (
   <div>
-    {/* <img src={heart} className="heart" alt="heart" /> */}
     <img src={logo} className="customer-logo" alt="customerLogo" />
   </div>
   ) : (
