@@ -2,14 +2,13 @@ terraform {
   required_providers {
     launchdarkly = {
       source = "launchdarkly/launchdarkly"
-      version = "~> 2.0"
+      version = "~> 2.5"
     }
   }
-  required_version = "~> 0.13.0"
+  required_version = "~> 1.1.7"
 }
 
 provider "launchdarkly" {
-  version     = "~> 2.0"
   access_token = "YOUR_API_TOKEN"
 }
 
