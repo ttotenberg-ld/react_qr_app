@@ -1,3 +1,14 @@
+// Terraform file for setting up flags for the React QR App demo.
+// You DON'T need to edit this file unless you're changing or creating
+// default flag configurations. 
+//
+// If you just want to run this file to create the flags, then:
+// 1. Edit the .tfvars file to add your project key and an API access token.
+// 2. Ensure that you have Terraform installed.
+// 3. Run: terraform plan -var-file=".tfvars"
+// 4. Assuming you got no errors from step 3, run: terraform apply -var-file=".tfvars"
+// 5. Go check out your new flags!
+
 terraform {
   required_providers {
     launchdarkly = {
@@ -8,12 +19,19 @@ terraform {
   required_version = "~> 1.1.7"
 }
 
-provider "launchdarkly" {
-  access_token = "YOUR_API_TOKEN"
+variable "access_token" {
+  type = string
 }
 
+variable "project_key" {
+  type = string
+}
+
+provider "launchdarkly" {
+  access_token =  var.access_token
+}
 resource "launchdarkly_feature_flag" "react_background_color" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactBackgroundColor"
   name        = "React Background Color"
 
@@ -46,7 +64,7 @@ resource "launchdarkly_feature_flag" "react_background_color" {
 }
 
 resource "launchdarkly_feature_flag" "react_qr_code" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactQRCode"
   name        = "React QR Code"
 
@@ -71,7 +89,7 @@ resource "launchdarkly_feature_flag" "react_qr_code" {
 }
 
 resource "launchdarkly_feature_flag" "parent_branding" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactParentBrand"
   name        = "React Parent Brand"
 
@@ -96,7 +114,7 @@ resource "launchdarkly_feature_flag" "parent_branding" {
 }
 
 resource "launchdarkly_feature_flag" "child_header" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactChildHeaderLogo"
   name        = "React Child Header Logo"
 
@@ -121,7 +139,7 @@ resource "launchdarkly_feature_flag" "child_header" {
 }
 
 resource "launchdarkly_feature_flag" "child_spinny" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactChildSpinnyLogo"
   name        = "React Child Spinny Logo"
 
@@ -146,7 +164,7 @@ resource "launchdarkly_feature_flag" "child_spinny" {
 }
 
 resource "launchdarkly_feature_flag" "child_toggle" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactChildToggle"
   name        = "React Child Toggle"
 
@@ -172,7 +190,7 @@ resource "launchdarkly_feature_flag" "child_toggle" {
 
 
 resource "launchdarkly_feature_flag" "customer_logo" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactCustomerLogo"
   name        = "Customer Logo"
 
@@ -198,7 +216,7 @@ resource "launchdarkly_feature_flag" "customer_logo" {
 
 
 resource "launchdarkly_feature_flag" "show_customer_logo" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactShowCustomerLogo"
   name        = "Show Customer Logo"
 
@@ -223,7 +241,7 @@ resource "launchdarkly_feature_flag" "show_customer_logo" {
 }
 
 resource "launchdarkly_feature_flag" "show_heart" {
-  project_key = "YOUR_PROJECT_KEY"
+  project_key = var.project_key
   key         = "reactShowHeart"
   name        = "Show Heart"
 
