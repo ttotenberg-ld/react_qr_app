@@ -22,14 +22,14 @@ Want to use GitHub Pages to publish your own copy of this? You've come to the ri
 
 ### Flags used by the app
 
-    * `reactBackgroundColor`: A **string** flag with `gray`, `purple`, `blue`, and `red` as string variations. 
-    * `reactCustomerLogo`: A **string** flag with variations containing URLs of images.
-    * `reactQRCode`: **boolean**
-    * `reactParentBrand`: **boolean**
-    * `reactChildHeaderLogo`: **boolean**
-    * `reactChildToggle`: **boolean**
-    * `reactShowCustomerLogo`: **boolean**
-    * `reactShowHeart`: **boolean**
+* `reactBackgroundColor`: A **string** flag with `gray`, `purple`, `blue`, and `red` as string variations. 
+* `reactCustomerLogo`: A **string** flag with variations containing URLs of images.
+* `reactQRCode`: **boolean**
+* `reactParentBrand`: **boolean**
+* `reactChildHeaderLogo`: **boolean**
+* `reactChildToggle`: **boolean**
+* `reactShowCustomerLogo`: **boolean**
+* `reactShowHeart`: **boolean**
 
 ### Creating LaunchDarkly flags
 
