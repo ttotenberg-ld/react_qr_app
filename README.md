@@ -43,10 +43,11 @@ If you want to create a new project with all the right flags, then you can eithe
    1. An empty LaunchDarkly project, ready for some funky fresh flags
    2. An API access token with `Writer` permissions. Go to the [Authorizations](https://app.launchdarkly.com/settings/authorization) page to create it.
    3. Terraform installed
-1. See the `.tfvars.example` file in the root directory? Rename it to `.tfvars`.
+1. See the `terraform.tfvars.example` file in the root directory? Rename it to `terraform.tfvars`.
 1. Then edit the `.tfvars` file, replacing the `access_token` and `project_key` values.
-1. Run: `terraform plan -var-file=".tfvars"`
-1. If that ran with no errors, then run: `terraform apply -var-file=".tfvars"`
+1. Run: `terraform init` to initialize the configuration
+1. Run: `terraform plan`
+1. If that ran with no errors, then run: `terraform apply`
 1. Go enjoy your lovely new flags!
 
 ### Testing
