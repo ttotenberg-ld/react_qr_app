@@ -1,7 +1,7 @@
 {
   "name": "react_node_ff",
   "version": "0.1.0",
-  "homepage": "https://ttotenberg-ld.github.io/react_qr_app",
+  "homepage": "https://kevincloud.github.io/react_qr_app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
