@@ -12,6 +12,7 @@ Want to use GitHub Pages to publish your own copy of this? You've come to the ri
 1. Clone the new repository to your local machine, cloud editor, or whatever
 1. Run `npm install` in your local root directory of the project
     1. NOTE: Due to an [outstanding issue with Webpack and version 17+ of Node](https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported), you must use Node version 16.X or below.
+    1. NOTE: If you receive dependency errors, you can add the `--legacy-peer-deps` flag
 1. In your GitHub repository, go to Settings > Pages and create a GitHub Page. Copy the URL of your GitHub Page, for use in the next section.
 
 ### Modifying variables for your own usage
