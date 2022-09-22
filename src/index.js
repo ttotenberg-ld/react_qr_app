@@ -7,7 +7,7 @@ import { asyncWithLDProvider } from "launchdarkly-react-client-sdk";
 import { deviceType, osName } from "react-device-detect";
 import getUserId from "./util/getUserId";
 
-const CLIENTKEY = "632a4124f983701215cfd2a2";
+const CLIENTKEY = "632a4124f983701215cfd2a1";
 
 let id = getUserId();
 
