@@ -138,31 +138,6 @@ resource "launchdarkly_feature_flag" "child_header" {
   }
 }
 
-resource "launchdarkly_feature_flag" "child_spinny" {
-  project_key = var.project_key
-  key         = "reactChildSpinnyLogo"
-  name        = "React Child Spinny Logo"
-
-  variation_type = "boolean"
-  variations {
-    value       = true
-    name        = "New"
-  }
-  variations {
-    value       = false
-    name        = "Old"
-  }
-
-  defaults {
-    on_variation  = 0
-    off_variation = 1
-  }
-
-  client_side_availability {
-    using_environment_id = true
-  }
-}
-
 resource "launchdarkly_feature_flag" "child_toggle" {
   project_key = var.project_key
   key         = "reactChildToggle"
