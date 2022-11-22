@@ -30,7 +30,7 @@ function App() {
 
   // CHATBOT STUFF
   useEffect(() => {
-    addResponseMessage('Welcome to this **awesome** chat!');
+    addResponseMessage('Hi there! Ask me a question!');
   }, []);
 
   // END CHATBOT STUFF
