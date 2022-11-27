@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react_qr_app/static/css/main.e44b84fe.chunk.css",
-    "main.js": "/react_qr_app/static/js/main.894c56b4.chunk.js",
-    "main.js.map": "/react_qr_app/static/js/main.894c56b4.chunk.js.map",
+    "main.js": "/react_qr_app/static/js/main.ac04db04.chunk.js",
+    "main.js.map": "/react_qr_app/static/js/main.ac04db04.chunk.js.map",
     "runtime-main.js": "/react_qr_app/static/js/runtime-main.5a4b5b99.js",
     "runtime-main.js.map": "/react_qr_app/static/js/runtime-main.5a4b5b99.js.map",
     "static/css/2.f62537b7.chunk.css": "/react_qr_app/static/css/2.f62537b7.chunk.css",
@@ -25,6 +25,6 @@
     "static/css/2.f62537b7.chunk.css",
     "static/js/2.e5e2e93c.chunk.js",
     "static/css/main.e44b84fe.chunk.css",
-    "static/js/main.894c56b4.chunk.js"
+    "static/js/main.ac04db04.chunk.js"
   ]
 }
