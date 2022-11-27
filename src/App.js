@@ -28,12 +28,9 @@ function App() {
   }, [reactBackgroundColor]);
 
 
-  // CHATBOT STUFF
   useEffect(() => {
     addResponseMessage('Hi there! Ask me a question!');
   }, []);
-
-  // END CHATBOT STUFF
 
   return (
     <div className={headerStyle}>

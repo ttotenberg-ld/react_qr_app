@@ -8,8 +8,7 @@ import meanRobot from "./../images/meanRobot.png";
 import pirateRobot from "./../images/pirateRobot.png";
 
 
-
-const chatbot = ({ flags, ldClient /*, ...otherProps */ }) => {
+const chatbot = ({ ldClient /*, ...otherProps */ }) => {
   let showFeature = ldClient.variation("chatbot-feature");
   let personality = ldClient.variation("chatbot-personality");
   console.log(personality);
@@ -67,11 +66,10 @@ const chatbot = ({ flags, ldClient /*, ...otherProps */ }) => {
     <div>
       <Widget 
         handleNewUserMessage={handleNewUserMessage}
-        // TO DO: Hook up the title and subtitle to personality flags
-        // Example: For mean robot it can be labeled Evil Robot with a subtitle "warning: it's spicy"
         title={changeTitle()}
         subtitle={changeSubtitle()}
-        profileAvatar={changeAvatar()}
+        titleAvatar={changeAvatar()}
+        senderPlaceHolder='Ask a question'
       />
     </div>
   ) : (
