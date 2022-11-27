@@ -2,26 +2,53 @@
 import { withLDConsumer } from "launchdarkly-react-client-sdk";
 import { Widget, addResponseMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
+import axios from 'axios';
+import niceRobot from "./../images/happyRobot.png";
+import meanRobot from "./../images/meanRobot.png";
+import pirateRobot from "./../images/pirateRobot.png";
 
 
 
 const chatbot = ({ flags, ldClient /*, ...otherProps */ }) => {
   let showFeature = ldClient.variation("chatbot-feature");
+  let personality = ldClient.variation("chatbot-personality");
+  console.log(personality);
 
-  //Change url to the URL where you'll be hosting this app
+  function changeAvatar() {
+    if (personality === 'pirate') {
+      return pirateRobot
+    } else if (personality === 'mean') {
+      return meanRobot
+    } else {
+      return niceRobot
+    }
+  }
+
+  function changeTitle() {
+    if (personality === 'pirate') {
+      return 'ARRRRobot'
+    } else if (personality === 'mean') {
+      return 'Skynet'
+    } else {
+      return 'Nice Robot'
+    }
+  }
+
+  function changeSubtitle() {
+    if (personality === 'pirate') {
+      return 'Here there be answers'
+    } else if (personality === 'mean') {
+      return 'Go ask Google instead'
+    } else {
+      return 'e.g. How big is the Earth?'
+    }
+  }
+
   const url = 'https://fxbft3m9yf.execute-api.us-east-2.amazonaws.com/default/answer?question='
 
-  function sendRequest(url) {
-    console.log('my url is ' + url);
-    // TRY AXIOS INSTEAD
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          return('Uh oh! Something went wrong!' + String(response))
-        }
-        console.log('heres the response:', response.body);
-        return JSON.stringify(response)
-      })
+  async function sendRequest(url) {
+    const response = await axios.get(url);
+    return response.data.answer;
   }
 
   function URLify(string) {
@@ -29,19 +56,22 @@ const chatbot = ({ flags, ldClient /*, ...otherProps */ }) => {
     return url + question
   }
 
-  const handleNewUserMessage = (newMessage) => {
+  const handleNewUserMessage = async (newMessage) => {
     console.log(`New message incoming! ${newMessage}`);
     // Now send the message throught the backend API
-    addResponseMessage('The URL should be: ' + URLify(newMessage));
-    addResponseMessage(String(sendRequest(URLify(newMessage))));
+    const message = await sendRequest(URLify(newMessage));
+    addResponseMessage(message);
   };
   
   return showFeature ? (
     <div>
       <Widget 
         handleNewUserMessage={handleNewUserMessage}
-        title="Chatbot 9000"
-        subtitle="Ask me anything!"
+        // TO DO: Hook up the title and subtitle to personality flags
+        // Example: For mean robot it can be labeled Evil Robot with a subtitle "warning: it's spicy"
+        title={changeTitle()}
+        subtitle={changeSubtitle()}
+        profileAvatar={changeAvatar()}
       />
     </div>
   ) : (
