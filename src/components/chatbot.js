@@ -27,9 +27,9 @@ const chatbot = ({ ldClient /*, ...otherProps */ }) => {
     if (personality === 'pirate') {
       return 'ARRRRobot'
     } else if (personality === 'mean') {
-      return 'Skynet'
+      return 'Stack Overflow Bot'
     } else {
-      return 'Nice Robot'
+      return 'Answerbot'
     }
   }
 
@@ -37,7 +37,7 @@ const chatbot = ({ ldClient /*, ...otherProps */ }) => {
     if (personality === 'pirate') {
       return 'Here there be answers'
     } else if (personality === 'mean') {
-      return 'Go ask Google instead'
+      return 'Did you google it first?'
     } else {
       return 'e.g. How big is the Earth?'
     }
