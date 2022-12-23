@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/react_qr_app/static/css/main.e44b84fe.chunk.css",
-    "main.js": "/react_qr_app/static/js/main.0ea20abf.chunk.js",
-    "main.js.map": "/react_qr_app/static/js/main.0ea20abf.chunk.js.map",
+    "main.css": "/react_qr_app/static/css/main.9cc7f576.chunk.css",
+    "main.js": "/react_qr_app/static/js/main.b7f41306.chunk.js",
+    "main.js.map": "/react_qr_app/static/js/main.b7f41306.chunk.js.map",
     "runtime-main.js": "/react_qr_app/static/js/runtime-main.93a3d2e7.js",
     "runtime-main.js.map": "/react_qr_app/static/js/runtime-main.93a3d2e7.js.map",
     "static/css/2.5151c14c.chunk.css": "/react_qr_app/static/css/2.5151c14c.chunk.css",
@@ -12,19 +12,19 @@
     "static/js/3.0a12341b.chunk.js.map": "/react_qr_app/static/js/3.0a12341b.chunk.js.map",
     "index.html": "/react_qr_app/index.html",
     "static/css/2.5151c14c.chunk.css.map": "/react_qr_app/static/css/2.5151c14c.chunk.css.map",
-    "static/css/main.e44b84fe.chunk.css.map": "/react_qr_app/static/css/main.e44b84fe.chunk.css.map",
+    "static/css/main.9cc7f576.chunk.css.map": "/react_qr_app/static/css/main.9cc7f576.chunk.css.map",
     "static/js/2.6bf25ef0.chunk.js.LICENSE.txt": "/react_qr_app/static/js/2.6bf25ef0.chunk.js.LICENSE.txt",
+    "static/media/astronaut.1d752285.png": "/react_qr_app/static/media/astronaut.1d752285.png",
+    "static/media/astronaut_old.09554e17.png": "/react_qr_app/static/media/astronaut_old.09554e17.png",
     "static/media/heart.3d7839e5.svg": "/react_qr_app/static/media/heart.3d7839e5.svg",
     "static/media/ld_logo_white.c7ccd94b.png": "/react_qr_app/static/media/ld_logo_white.c7ccd94b.png",
-    "static/media/ld_logo_white_old.a7492e3d.png": "/react_qr_app/static/media/ld_logo_white_old.a7492e3d.png",
-    "static/media/toggle.1d752285.png": "/react_qr_app/static/media/toggle.1d752285.png",
-    "static/media/toggle_old.09554e17.png": "/react_qr_app/static/media/toggle_old.09554e17.png"
+    "static/media/ld_logo_white_old.a7492e3d.png": "/react_qr_app/static/media/ld_logo_white_old.a7492e3d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.93a3d2e7.js",
     "static/css/2.5151c14c.chunk.css",
     "static/js/2.6bf25ef0.chunk.js",
-    "static/css/main.e44b84fe.chunk.css",
-    "static/js/main.0ea20abf.chunk.js"
+    "static/css/main.9cc7f576.chunk.css",
+    "static/js/main.b7f41306.chunk.js"
   ]
 }
