@@ -8,10 +8,8 @@ import meanRobot from "./../images/meanRobot.png";
 import pirateRobot from "./../images/pirateRobot.png";
 
 
-const chatbot = ({ ldClient /*, ...otherProps */ }) => {
-  let showFeature = ldClient.variation("chatbot-feature");
-  let personality = ldClient.variation("chatbot-personality");
-  console.log(personality);
+const chatbot = ({ flags, ldClient }) => {
+  let personality = ldClient.variation("config-chatbot-personality");
 
   function changeAvatar() {
     if (personality === 'pirate') {
@@ -46,8 +44,13 @@ const chatbot = ({ ldClient /*, ...otherProps */ }) => {
   const url = 'https://fxbft3m9yf.execute-api.us-east-2.amazonaws.com/default/answer?question='
 
   async function sendRequest(url) {
-    const response = await axios.get(url);
-    return response.data.answer;
+    if (personality === 'placeholder') {
+      return "Error: Bot not found."
+    } else {
+      const response = await axios.get(url);
+      return response.data.answer;
+    }
+    
   }
 
   function URLify(string) {
@@ -62,7 +65,7 @@ const chatbot = ({ ldClient /*, ...otherProps */ }) => {
     addResponseMessage(message);
   };
   
-  return showFeature ? (
+  return flags.showChatbot ? (
     <div>
       <Widget 
         handleNewUserMessage={handleNewUserMessage}

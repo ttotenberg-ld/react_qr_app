@@ -30,10 +30,10 @@ variable "project_key" {
 provider "launchdarkly" {
   access_token =  var.access_token
 }
-resource "launchdarkly_feature_flag" "react_background_color" {
+resource "launchdarkly_feature_flag" "config_background_color" {
   project_key = var.project_key
-  key         = "reactBackgroundColor"
-  name        = "React Background Color"
+  key         = "config-background-color"
+  name        = "Config: Background Color"
 
   variation_type = "string"
   variations {
@@ -41,12 +41,12 @@ resource "launchdarkly_feature_flag" "react_background_color" {
     name        = "Gray"
   }
   variations {
-    value       = "purple"
-    name        = "Purple"
-  }
-  variations {
     value       = "blue"
     name        = "Blue"
+  }
+  variations {
+    value       = "purple"
+    name        = "Purple"
   }
   variations {
     value       = "red"
@@ -54,19 +54,23 @@ resource "launchdarkly_feature_flag" "react_background_color" {
   }
 
   defaults {
-    on_variation  = 1
+    on_variation  = 2
     off_variation = 0
   }
 
   client_side_availability {
     using_environment_id = true
   }
+
+  tags = [
+    "front-end"
+  ]
 }
 
-resource "launchdarkly_feature_flag" "react_qr_code" {
+resource "launchdarkly_feature_flag" "show_qr_code" {
   project_key = var.project_key
-  key         = "reactQRCode"
-  name        = "React QR Code"
+  key         = "show-qr-code"
+  name        = "Show: QR Code"
 
   variation_type = "boolean"
   variations {
@@ -86,12 +90,16 @@ resource "launchdarkly_feature_flag" "react_qr_code" {
   client_side_availability {
     using_environment_id = true
   }
+
+  tags = [
+    "front-end"
+  ]
 }
 
-resource "launchdarkly_feature_flag" "parent_branding" {
+resource "launchdarkly_feature_flag" "release_new_ui" {
   project_key = var.project_key
-  key         = "reactParentBrand"
-  name        = "React Parent Brand"
+  key         = "release-new-ui"
+  name        = "Release: New UI"
 
   variation_type = "boolean"
   variations {
@@ -111,12 +119,16 @@ resource "launchdarkly_feature_flag" "parent_branding" {
   client_side_availability {
     using_environment_id = true
   }
+
+  tags = [
+    "release"
+  ]
 }
 
-resource "launchdarkly_feature_flag" "child_header" {
+resource "launchdarkly_feature_flag" "release_header_logo" {
   project_key = var.project_key
-  key         = "reactChildHeaderLogo"
-  name        = "React Child Header Logo"
+  key         = "release-header-logo"
+  name        = "Release: Header Logo"
 
   variation_type = "boolean"
   variations {
@@ -136,12 +148,16 @@ resource "launchdarkly_feature_flag" "child_header" {
   client_side_availability {
     using_environment_id = true
   }
+
+  tags = [
+    "front-end"
+  ]
 }
 
-resource "launchdarkly_feature_flag" "child_toggle" {
+resource "launchdarkly_feature_flag" "release_astronaut" {
   project_key = var.project_key
-  key         = "reactChildToggle"
-  name        = "React Child Toggle"
+  key         = "release-astronaut"
+  name        = "Release: Astronaut"
 
   variation_type = "boolean"
   variations {
@@ -161,13 +177,17 @@ resource "launchdarkly_feature_flag" "child_toggle" {
   client_side_availability {
     using_environment_id = true
   }
+
+  tags = [
+    "front-end"
+  ]
 }
 
 
-resource "launchdarkly_feature_flag" "customer_logo" {
+resource "launchdarkly_feature_flag" "config_customer_logo" {
   project_key = var.project_key
-  key         = "reactCustomerLogo"
-  name        = "Customer Logo"
+  key         = "config-customer-logo"
+  name        = "Config: Customer Logo"
 
   variation_type = "string"
   variations {
@@ -187,13 +207,17 @@ resource "launchdarkly_feature_flag" "customer_logo" {
   client_side_availability {
     using_environment_id = true
   }
+
+  tags = [
+    "front-end"
+  ]
 }
 
 
 resource "launchdarkly_feature_flag" "show_customer_logo" {
   project_key = var.project_key
-  key         = "reactShowCustomerLogo"
-  name        = "Show Customer Logo"
+  key         = "show-customer-logo"
+  name        = "Show: Customer Logo"
 
   variation_type = "boolean"
   variations {
@@ -213,12 +237,16 @@ resource "launchdarkly_feature_flag" "show_customer_logo" {
   client_side_availability {
     using_environment_id = true
   }
+
+  tags = [
+    "front-end"
+  ]
 }
 
-resource "launchdarkly_feature_flag" "show_heart" {
+resource "launchdarkly_feature_flag" "release_heart" {
   project_key = var.project_key
-  key         = "reactShowHeart"
-  name        = "Show Heart"
+  key         = "release-heart"
+  name        = "Release: Heart"
 
   variation_type = "boolean"
   variations {
@@ -238,4 +266,103 @@ resource "launchdarkly_feature_flag" "show_heart" {
   client_side_availability {
     using_environment_id = true
   }
+
+  tags = [
+    "front-end"
+  ]
+}
+
+resource "launchdarkly_feature_flag" "show_chatbot" {
+  project_key = var.project_key
+  key         = "show-chatbot"
+  name        = "Show: Chatbot"
+
+  variation_type = "boolean"
+  variations {
+    value       = true
+    name        = "True"
+  }
+  variations {
+    value       = false
+    name        = "False"
+  }
+
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
+
+  tags = [
+    "front-end"
+  ]
+}
+
+resource "launchdarkly_feature_flag" "config_chatbot_personality" {
+  project_key = var.project_key
+  key         = "config-chatbot-personality"
+  name        = "Config: Chatbot Personality"
+
+  variation_type = "string"
+  variations {
+    value       = "nice"
+    name        = "Answerbot"
+  }
+  variations {
+    value       = "mean"
+    name        = "Stack Overflow"
+  }
+  variations {
+    value       = "pirate"
+    name        = "Pirate"
+  }
+  variations {
+    value       = "placeholder"
+    name        = "Placeholder"
+  }
+
+  defaults {
+    on_variation  = 0
+    off_variation = 3
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
+
+  tags = [
+    "back-end"
+  ]
+}
+
+resource "launchdarkly_feature_flag" "release_chatbot" {
+  project_key = var.project_key
+  key         = "release-chatbot"
+  name        = "Release: Chatbot"
+
+  variation_type = "boolean"
+  variations {
+    value       = true
+    name        = "True"
+  }
+  variations {
+    value       = false
+    name        = "False"
+  }
+
+  defaults {
+    on_variation  = 0
+    off_variation = 1
+  }
+
+  client_side_availability {
+    using_environment_id = true
+  }
+
+  tags = [
+    "release"
+  ]
 }
