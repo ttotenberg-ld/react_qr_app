@@ -63,7 +63,8 @@ resource "launchdarkly_feature_flag" "config_background_color" {
   }
 
   tags = [
-    "front-end"
+    "front-end",
+    "QR"
   ]
 }
 
@@ -92,7 +93,8 @@ resource "launchdarkly_feature_flag" "show_qr_code" {
   }
 
   tags = [
-    "front-end"
+    "front-end",
+    "QR"
   ]
 }
 
@@ -150,7 +152,8 @@ resource "launchdarkly_feature_flag" "release_header_logo" {
   }
 
   tags = [
-    "front-end"
+    "front-end",
+    "QR"
   ]
 }
 
@@ -179,7 +182,8 @@ resource "launchdarkly_feature_flag" "release_astronaut" {
   }
 
   tags = [
-    "front-end"
+    "front-end",
+    "QR"
   ]
 }
 
@@ -209,7 +213,8 @@ resource "launchdarkly_feature_flag" "config_customer_logo" {
   }
 
   tags = [
-    "front-end"
+    "front-end",
+    "QR"
   ]
 }
 
@@ -239,7 +244,8 @@ resource "launchdarkly_feature_flag" "show_customer_logo" {
   }
 
   tags = [
-    "front-end"
+    "front-end",
+    "QR"
   ]
 }
 
@@ -268,7 +274,8 @@ resource "launchdarkly_feature_flag" "release_heart" {
   }
 
   tags = [
-    "front-end"
+    "front-end",
+    "QR"
   ]
 }
 
@@ -297,7 +304,8 @@ resource "launchdarkly_feature_flag" "show_chatbot" {
   }
 
   tags = [
-    "front-end"
+    "front-end",
+    "QR"
   ]
 }
 
@@ -334,7 +342,8 @@ resource "launchdarkly_feature_flag" "config_chatbot_personality" {
   }
 
   tags = [
-    "back-end"
+    "back-end",
+    "QR"
   ]
 }
 
@@ -363,6 +372,7 @@ resource "launchdarkly_feature_flag" "release_chatbot" {
   }
 
   tags = [
-    "release"
+    "release",
+    "QR"
   ]
 }

@@ -23,14 +23,14 @@ Want to use GitHub Pages to publish your own copy of this? You've come to the ri
 
 ### Flags used by the app
 
-* `reactBackgroundColor`: A **string** flag with `gray`, `purple`, `blue`, and `red` as string variations. 
-* `reactCustomerLogo`: A **string** flag with variations containing URLs of images.
-* `reactQRCode`: **boolean**
-* `reactParentBrand`: **boolean**
-* `reactChildHeaderLogo`: **boolean**
-* `reactChildToggle`: **boolean**
-* `reactShowCustomerLogo`: **boolean**
-* `reactShowHeart`: **boolean**
+* `config-background-color`: A **string** flag with `gray`, `purple`, `blue`, and `red` as string variations. 
+* `config-customer-logo`: A **string** flag with variations containing URLs of images.
+* `show-qr-code`: **boolean**
+* `release-new-ui`: A **boolean** placeholder flag which you can use as a prerequisite for other flags
+* `release-header-logo`: **boolean**
+* `release-astronaut`: **boolean**
+* `show-customer-logo`: **boolean**
+* `release-heart`: **boolean**
 
 ### Creating LaunchDarkly flags
 
@@ -54,7 +54,7 @@ If you want to create a new project with all the right flags, then you can eithe
 ### Testing
 
 1. To test that it's working locally, run `npm start` in the root directory of your project
-1. On your LaunchDarkly dashboard, try turning the `reactQRCode` flag on and off, and serve different colors in the `reactBackgroundColor` flag
+1. On your LaunchDarkly dashboard, try turning the `show-qr-code` flag on and off, and serve different colors in the `config-background-color` flag
 
 ### Deploying
 
