@@ -32,6 +32,13 @@
   background-color: #FFFFFF;
 }
 
+.self-healer {
+  font-size: 10vw;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .astronaut-logo {
   height: 400px;
