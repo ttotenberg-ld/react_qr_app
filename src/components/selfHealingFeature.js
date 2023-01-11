@@ -4,7 +4,7 @@ import elmoFire from "./../images/elmo_fire.gif";
 
 const selfHealingFeature = ({ flags, ldClient }) => {
 
-  const webhook_url = "https://app.launchdarkly.com/webhook/triggers/63a61ca3f43f6511426bb441/28706181-e761-46f7-b0cb-29fa08127f2a"
+  const webhook_url = "https://app.launchdarkly.com/webhook/triggers/63a61ca3f43f6511426bb441/ea3a7136-4082-4a73-8bc9-26c9b87a8d14"
 
   function timeout(delay) {
     return new Promise( res => setTimeout(res, delay) );

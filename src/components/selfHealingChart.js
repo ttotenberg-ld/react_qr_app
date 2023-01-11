@@ -1,90 +1,93 @@
 import { withLDConsumer } from "launchdarkly-react-client-sdk";
-// import axios from 'axios';
+import axios from 'axios';
 import { VictoryChart, VictoryLine } from 'victory';
 import React, { useState } from 'react';
 
 const SelfHealingFeature = ({ flags, ldClient }) => {
 
-  // const webhook_url = "https://app.launchdarkly.com/webhook/triggers/63bc9898d7913c12756ecdb3/2affd5aa-6df0-443f-b2d1-d42fb7f0878c"
-
-  // function timeout(delay) {
-  //   return new Promise( res => setTimeout(res, delay) );
-  // }
-
-  // async function sendRequest(url) {
-  //     await timeout(2000);
-  //     const response = await axios.post(url);
-  //     return response.data.answer;
-  // }
-
-
-  // function chartLoop() {
-  //   await timeout(1000);
-
-  // }
+  const webhook_url = "https://app.launchdarkly.com/webhook/triggers/63bc9898d7913c12756ecdb3/c12fc007-b3ef-43b0-874a-e1a0fa1e9691"
   
+  async function sendRequest(url) {
+    const response = await axios.post(url);
+    return response.data.answer;
+  }
 
-  const [figures, setFigures] = useState([
-    { x: 1, y: 21 },
-    { x: 2, y: 32 },
-    { x: 3, y: 53 },
-    { x: 4, y: 42 },
-    { x: 5, y: 75 },
-    { x: 6, y: 22 },
-    { x: 7, y: 31 },
-    { x: 8, y: 40 },
-    { x: 9, y: 52 },
-    { x: 10, y: 78 }
-  ]);
-
-  const threshold = [
-    { x: 2, y: 60 },
-    { x: 3, y: 60 },
-    { x: 4, y: 60 },
-    { x: 1, y: 60 },
-    { x: 5, y: 60 },
-    { x: 6, y: 60 },
-    { x: 7, y: 60 },
-    { x: 8, y: 60 },
-    { x: 9, y: 60 },
-    { x: 10, y: 60 }
+  const defaultValue = [
+    { x: 1, y: 13 },
+    { x: 2, y: 17 },
+    { x: 3, y: 23 },
+    { x: 4, y: 15 },
+    { x: 5, y: 20 },
+    { x: 6, y: 19 },
+    { x: 7, y: 14 },
+    { x: 8, y: 22 },
+    { x: 9, y: 13 },
+    { x: 10, y: 20 },
+    { x: 11, y: 18 }
   ]
 
-  function getRandomArbitrary(min, max) {
+  const [figures, setFigures] = useState(defaultValue);
+
+  const threshold = 60
+
+  const thresholdData = [
+    { x: 1, y: threshold },
+    { x: 2, y: threshold },
+    { x: 3, y: threshold },
+    { x: 4, y: threshold },
+    { x: 5, y: threshold },
+    { x: 6, y: threshold },
+    { x: 7, y: threshold },
+    { x: 8, y: threshold },
+    { x: 9, y: threshold },
+    { x: 10, y: threshold }
+  ]
+
+  // useEffect(() => {
+  //   console.log("Figures data: ",figures)
+  //   console.log("Figures data length: ",figures.length)
+  // }, [figures])
+
+  function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
   }
 
-  function randomLowNumber() {
-    var num = getRandomArbitrary(13, 24);
-    return num
-  }
-
   function plot(plotData) {
-    console.log("Figures data:")
-    console.log({figures})
-    console.log("Data before:")
-    console.log(plotData)
-    let flagValue = ldClient.variation("temp-chart-self-healing", false);
-    let lastItem = plotData.slice(-1)
-    let newCount = lastItem[0].x + 1
+    const newPlotData = [...plotData];
+    const flagValue = ldClient.variation("temp-chart-self-healing", false);
+    const lastItem = newPlotData.slice(-1)
+    const newCount = lastItem[0].x + 1
 
     if (flagValue) {
-      plotData.push({ x: newCount, y: 80 })
-      for (let i = 0; i < plotData.length; i++) {
-        let newNumber = Number(plotData[i].x) - 1;
-        plotData[i].x = newNumber;
+      const newDataValue = lastItem[0].y + getRandomNumber(2, 7)
+      if (newDataValue > threshold) {
+        sendRequest(webhook_url)
+      }
+      newPlotData.push({ x: newCount, y: newDataValue })
+      for (let i = 0; i < newPlotData.length; i++) {
+        const newNumber = Number(newPlotData[i].x) - 1;
+        newPlotData[i].x = newNumber;
       }
     } else {
-      plotData.push({ x: newCount, y: randomLowNumber() })
-      for (let i = 0; i < plotData.length; i++) {
-        let newNumber = Number(plotData[i].x) - 1;
-        plotData[i].x = newNumber;
+      newPlotData.push({ x: newCount, y: getRandomNumber(13, 24) })
+      for (let i = 0; i < newPlotData.length; i++) {
+        const newNumber = Number(newPlotData[i].x) - 1;
+        newPlotData[i].x = newNumber;
       }
     }
-    console.log("Data after:")
-    console.log(plotData)
-    return setFigures(plotData)
+    return setFigures(newPlotData)
   }
+
+  function timeout(delay) {
+    return new Promise( res => setTimeout(res, delay) );
+  }
+
+  async function chartLoop() {
+    await timeout(2000);
+    plot(figures)
+  }
+
+  chartLoop()
 
   // The React SDK automatically converts flag keys with dashes and periods to camelCase.
   // See this page for details: https://docs.launchdarkly.com/sdk/client-side/react/react-web#flag-keys
@@ -111,18 +114,15 @@ const SelfHealingFeature = ({ flags, ldClient }) => {
       <VictoryLine
         name = "dataLine"
         data = {figures}
+        animate={{easing: "linear"}}
       />
       <VictoryLine
         name = "thresholdLine"
-        data = {threshold}
+        data = {thresholdData}
         style={{
           data: {
             stroke: "red",
             strokeWidth: 5
-          },
-          labels: {
-            fontSize: 15,
-            fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
           }
         }}
       />
