@@ -6,7 +6,7 @@ const customerLogo = ({ flags, ldClient }) => {
 
   // The React SDK automatically converts flag keys with dashes and periods to camelCase.
   // See this page for details: https://docs.launchdarkly.com/sdk/client-side/react/react-web#flag-keys
-  return flags.showCustomerLogo ? (
+  return ((flags.showCustomerLogo) && (flags.showMonitoringChart === false)) ? (
   <div>
     <img src={logo} className="customer-logo" alt="customerLogo" />
   </div>

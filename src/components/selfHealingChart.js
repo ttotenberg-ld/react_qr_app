@@ -1,18 +1,24 @@
 import { withLDConsumer } from "launchdarkly-react-client-sdk";
 import axios from 'axios';
-import { VictoryChart, VictoryLine } from 'victory';
+import { VictoryChart, VictoryLine, VictoryLabel, VictoryAxis } from 'victory';
 import React, { useEffect, useState } from 'react';
 
-// const SelfHealingChart = ({ flags, ldClient }) => {
+// Flag trigger address used to killswitch, and put data back to stable state
+const webhook_url = "https://app.launchdarkly.com/webhook/triggers/63a61ca3f43f6511426bb441/67ffee07-d84f-4380-b69a-f933e72f02b0"
+
+// Function to send the webhook. Used in plot()
+async function sendRequest(url) {
+  const response = await axios.post(url);
+  return response.data.answer;
+}
+
+
+
+// Core component
 function SelfHealingChart ({ flags, ldClient }) {
+  const label = ldClient.variation("config-chart-label", "Error Rate");
 
-  const webhook_url = "https://app.launchdarkly.com/webhook/triggers/63bc9898d7913c12756ecdb3/c12fc007-b3ef-43b0-874a-e1a0fa1e9691"
-  
-  async function sendRequest(url) {
-    const response = await axios.post(url);
-    return response.data.answer;
-  }
-
+  // Chart data controlled by a flag
   const defaultValue = [
     { x: 1, y: 13 },
     { x: 2, y: 17 },
@@ -26,9 +32,10 @@ function SelfHealingChart ({ flags, ldClient }) {
     { x: 10, y: 20 },
     { x: 11, y: 18 }
   ]
-// Data to be updated
+
   const [figures, setFigures] = useState(defaultValue);
 
+  // Static red chart threshold line data
   const threshold = 60
 
   const thresholdData = [
@@ -44,6 +51,7 @@ function SelfHealingChart ({ flags, ldClient }) {
     { x: 10, y: threshold }
   ]
 
+  // Used to tell the chart to rerender
   const defaultMutation = [{
     externalMutations: [
       {
@@ -57,26 +65,19 @@ function SelfHealingChart ({ flags, ldClient }) {
 
   const [mutateChart, setMutateChart] = useState(defaultMutation)
 
-  // useEffect(() => {
-  //   console.log("Figures data: ",figures)
-  //   console.log("Figures data length: ",figures.length)
-  // }, [figures])
-
-
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
   }
 
-  // Function that updates figures
+  // Function used to update 'figures' with new data
   function plot() {
-    console.log(figures)
     const newPlotData = figures;
-    const flagValue = ldClient.variation("temp-chart-self-healing", false);
+    const flagValue = ldClient.variation("release-self-healing-feature", false);
     const lastItem = newPlotData.slice(-1)
     const newCount = lastItem[0].x + 1
 
     if (flagValue) {
-      const newDataValue = lastItem[0].y + getRandomNumber(2, 7)
+      const newDataValue = lastItem[0].y + getRandomNumber(3, 8)
       if (newDataValue > threshold) {
         sendRequest(webhook_url)
       }
@@ -106,6 +107,7 @@ function SelfHealingChart ({ flags, ldClient }) {
     ]}])
   }
 
+  // Core loop to repeatedly create new data
   useEffect(() => {
     const chartLoop = setInterval(plot, 2000);
     return function cleanup() {
@@ -118,29 +120,39 @@ function SelfHealingChart ({ flags, ldClient }) {
   // See this page for details: https://docs.launchdarkly.com/sdk/client-side/react/react-web#flag-keys
   return flags.showMonitoringChart ? (
     <div>
-    <span className="chart">System Monitor</span>  
     <VictoryChart
     domain={{ x: [1, 10], y:[0, 100]}}
     externalEventMutations={mutateChart}
-    events={[{
-      target: "parent",
-      eventHandlers: {
-        onClick: () => {
-          
-          return [{
-            childName: "dataLine",
-            mutation: () => ({ data: figures })
-            // TODO: FIGURE OUT HOW TO USE EXTERNAL MUTATIONS
-
-          }]
-        }
-      }
-    }]}
     >
+      <VictoryLabel 
+        text="System Monitor" 
+        x={225} 
+        y={30} 
+        textAnchor="middle"
+        style = {[
+          { fill: "black", fontSize: 30 }
+        ]} 
+      />
+      <VictoryLabel 
+        text={label}
+        x={12} 
+        y={150} 
+        textAnchor="middle" 
+        angle={-90}
+        style = {[
+          { fill: "black", fontSize: 20 }
+        ]}
+      />
+      <VictoryAxis 
+        tickFormat={[
+          ""
+        ]}
+      />
+      <VictoryAxis dependentAxis/>
       <VictoryLine
         name = "dataLine"
         data = {figures}
-        animate={{easing: "linear", duration: "1000"}}
+        animate={{easing: "linear", duration: 1000}}
       />
       <VictoryLine
         name = "thresholdLine"
