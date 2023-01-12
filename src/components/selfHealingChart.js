@@ -44,10 +44,24 @@ function SelfHealingChart ({ flags, ldClient }) {
     { x: 10, y: threshold }
   ]
 
+  const defaultMutation = [{
+    externalMutations: [
+      {
+        childName: "dataLine",
+        target: "parent",
+        eventKey: "all",
+        mutation: () => ({ data: figures }),
+        
+      }
+  ]}]
+
+  const [mutateChart, setMutateChart] = useState(defaultMutation)
+
   // useEffect(() => {
   //   console.log("Figures data: ",figures)
   //   console.log("Figures data length: ",figures.length)
   // }, [figures])
+
 
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
@@ -55,7 +69,7 @@ function SelfHealingChart ({ flags, ldClient }) {
 
   // Function that updates figures
   function plot() {
-    console.log("loop loop loop shoop da loop")
+    console.log(figures)
     const newPlotData = figures;
     const flagValue = ldClient.variation("temp-chart-self-healing", false);
     const lastItem = newPlotData.slice(-1)
@@ -78,11 +92,22 @@ function SelfHealingChart ({ flags, ldClient }) {
         newPlotData[i].x = newNumber;
       }
     }
-    return setFigures(newPlotData)
+
+    setFigures(newPlotData)
+    setMutateChart([{
+      externalMutations: [
+        {
+          childName: "dataLine",
+          target: "parent",
+          eventKey: "all",
+          mutation: () => ({ data: figures }),
+          
+        }
+    ]}])
   }
 
   useEffect(() => {
-    const chartLoop = setInterval(plot, 1000);
+    const chartLoop = setInterval(plot, 2000);
     return function cleanup() {
       clearInterval(chartLoop);
     };
@@ -96,6 +121,7 @@ function SelfHealingChart ({ flags, ldClient }) {
     <span className="chart">System Monitor</span>  
     <VictoryChart
     domain={{ x: [1, 10], y:[0, 100]}}
+    externalEventMutations={mutateChart}
     events={[{
       target: "parent",
       eventHandlers: {
@@ -114,7 +140,7 @@ function SelfHealingChart ({ flags, ldClient }) {
       <VictoryLine
         name = "dataLine"
         data = {figures}
-        animate={{easing: "linear"}}
+        animate={{easing: "linear", duration: "1000"}}
       />
       <VictoryLine
         name = "thresholdLine"
@@ -135,4 +161,3 @@ function SelfHealingChart ({ flags, ldClient }) {
 };
 
 export default withLDConsumer()(SelfHealingChart);
-
