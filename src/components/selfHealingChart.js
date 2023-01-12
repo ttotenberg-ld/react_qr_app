@@ -1,9 +1,10 @@
 import { withLDConsumer } from "launchdarkly-react-client-sdk";
 import axios from 'axios';
 import { VictoryChart, VictoryLine } from 'victory';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const SelfHealingFeature = ({ flags, ldClient }) => {
+// const SelfHealingChart = ({ flags, ldClient }) => {
+function SelfHealingChart ({ flags, ldClient }) {
 
   const webhook_url = "https://app.launchdarkly.com/webhook/triggers/63bc9898d7913c12756ecdb3/c12fc007-b3ef-43b0-874a-e1a0fa1e9691"
   
@@ -25,7 +26,7 @@ const SelfHealingFeature = ({ flags, ldClient }) => {
     { x: 10, y: 20 },
     { x: 11, y: 18 }
   ]
-
+// Data to be updated
   const [figures, setFigures] = useState(defaultValue);
 
   const threshold = 60
@@ -52,8 +53,10 @@ const SelfHealingFeature = ({ flags, ldClient }) => {
     return Math.random() * (max - min) + min;
   }
 
-  function plot(plotData) {
-    const newPlotData = [...plotData];
+  // Function that updates figures
+  function plot() {
+    console.log("loop loop loop shoop da loop")
+    const newPlotData = figures;
     const flagValue = ldClient.variation("temp-chart-self-healing", false);
     const lastItem = newPlotData.slice(-1)
     const newCount = lastItem[0].x + 1
@@ -78,16 +81,13 @@ const SelfHealingFeature = ({ flags, ldClient }) => {
     return setFigures(newPlotData)
   }
 
-  function timeout(delay) {
-    return new Promise( res => setTimeout(res, delay) );
-  }
-
-  async function chartLoop() {
-    await timeout(2000);
-    plot(figures)
-  }
-
-  chartLoop()
+  useEffect(() => {
+    const chartLoop = setInterval(plot, 1000);
+    return function cleanup() {
+      clearInterval(chartLoop);
+    };
+  }, []);
+  
 
   // The React SDK automatically converts flag keys with dashes and periods to camelCase.
   // See this page for details: https://docs.launchdarkly.com/sdk/client-side/react/react-web#flag-keys
@@ -103,7 +103,7 @@ const SelfHealingFeature = ({ flags, ldClient }) => {
           
           return [{
             childName: "dataLine",
-            mutation: () => ({ data: plot(figures) })
+            mutation: () => ({ data: figures })
             // TODO: FIGURE OUT HOW TO USE EXTERNAL MUTATIONS
 
           }]
@@ -134,5 +134,5 @@ const SelfHealingFeature = ({ flags, ldClient }) => {
   );
 };
 
-export default withLDConsumer()(SelfHealingFeature);
+export default withLDConsumer()(SelfHealingChart);
 

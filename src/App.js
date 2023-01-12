@@ -10,6 +10,7 @@ import CustomerLogo from "./components/customerLogo";
 import Astronaut from "./components/astronaut";
 import SelfHealingFeature from "./components/selfHealingFeature"
 import SelfHealingChart from "./components/selfHealingChart";
+import Clock from "./components/clock"
 
 function App() {
   const [headerStyle, setHeaderStyle] = useState("gray-app-header");
@@ -39,6 +40,7 @@ function App() {
       </div>
       
       <div className={headerStyle}>
+        <Clock />
         <Heart />
         <CustomerLogo />
         <SelfHealingChart />
