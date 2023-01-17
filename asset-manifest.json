@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/react_qr_app/static/css/main.2632b671.chunk.css",
-    "main.js": "/react_qr_app/static/js/main.4d361ba1.chunk.js",
-    "main.js.map": "/react_qr_app/static/js/main.4d361ba1.chunk.js.map",
-    "runtime-main.js": "/react_qr_app/static/js/runtime-main.35516e0b.js",
-    "runtime-main.js.map": "/react_qr_app/static/js/runtime-main.35516e0b.js.map",
+    "main.js": "/react_qr_app/static/js/main.9faffe9e.chunk.js",
+    "main.js.map": "/react_qr_app/static/js/main.9faffe9e.chunk.js.map",
+    "runtime-main.js": "/react_qr_app/static/js/runtime-main.48b1c7bb.js",
+    "runtime-main.js.map": "/react_qr_app/static/js/runtime-main.48b1c7bb.js.map",
     "static/css/2.3995669a.chunk.css": "/react_qr_app/static/css/2.3995669a.chunk.css",
-    "static/js/2.768fc126.chunk.js": "/react_qr_app/static/js/2.768fc126.chunk.js",
-    "static/js/2.768fc126.chunk.js.map": "/react_qr_app/static/js/2.768fc126.chunk.js.map",
-    "static/js/3.d0d4fe6e.chunk.js": "/react_qr_app/static/js/3.d0d4fe6e.chunk.js",
-    "static/js/3.d0d4fe6e.chunk.js.map": "/react_qr_app/static/js/3.d0d4fe6e.chunk.js.map",
+    "static/js/2.50fb65a1.chunk.js": "/react_qr_app/static/js/2.50fb65a1.chunk.js",
+    "static/js/2.50fb65a1.chunk.js.map": "/react_qr_app/static/js/2.50fb65a1.chunk.js.map",
+    "static/js/3.c0b642b4.chunk.js": "/react_qr_app/static/js/3.c0b642b4.chunk.js",
+    "static/js/3.c0b642b4.chunk.js.map": "/react_qr_app/static/js/3.c0b642b4.chunk.js.map",
     "index.html": "/react_qr_app/index.html",
     "static/css/2.3995669a.chunk.css.map": "/react_qr_app/static/css/2.3995669a.chunk.css.map",
     "static/css/main.2632b671.chunk.css.map": "/react_qr_app/static/css/main.2632b671.chunk.css.map",
-    "static/js/2.768fc126.chunk.js.LICENSE.txt": "/react_qr_app/static/js/2.768fc126.chunk.js.LICENSE.txt",
+    "static/js/2.50fb65a1.chunk.js.LICENSE.txt": "/react_qr_app/static/js/2.50fb65a1.chunk.js.LICENSE.txt",
     "static/media/astronaut.1d752285.png": "/react_qr_app/static/media/astronaut.1d752285.png",
     "static/media/astronaut_old.09554e17.png": "/react_qr_app/static/media/astronaut_old.09554e17.png",
     "static/media/heart.3d7839e5.svg": "/react_qr_app/static/media/heart.3d7839e5.svg",
@@ -21,10 +21,10 @@
     "static/media/ld_logo_white_old.a7492e3d.png": "/react_qr_app/static/media/ld_logo_white_old.a7492e3d.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.35516e0b.js",
+    "static/js/runtime-main.48b1c7bb.js",
     "static/css/2.3995669a.chunk.css",
-    "static/js/2.768fc126.chunk.js",
+    "static/js/2.50fb65a1.chunk.js",
     "static/css/main.2632b671.chunk.css",
-    "static/js/main.4d361ba1.chunk.js"
+    "static/js/main.9faffe9e.chunk.js"
   ]
 }
