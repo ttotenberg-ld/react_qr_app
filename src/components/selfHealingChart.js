@@ -1,6 +1,6 @@
 import { withLDConsumer } from "launchdarkly-react-client-sdk";
 import axios from 'axios';
-import { VictoryChart, VictoryLine, VictoryLabel, VictoryAxis } from 'victory';
+import { VictoryChart, VictoryLine, VictoryLabel, VictoryAxis, VictoryArea } from 'victory';
 import React, { useEffect, useState } from 'react';
 
 // Flag trigger address used to killswitch, and put data back to stable state
@@ -12,25 +12,28 @@ async function sendRequest(url) {
   return response.data.answer;
 }
 
-
-
 // Core component
 function SelfHealingChart ({ flags, ldClient }) {
   const label = ldClient.variation("config-chart-label", "Error Rate");
 
   // Chart data controlled by a flag
   const defaultValue = [
-    { x: 1, y: 13 },
+    { x: 1, y: 15 },
     { x: 2, y: 17 },
-    { x: 3, y: 23 },
+    { x: 3, y: 16 },
     { x: 4, y: 15 },
-    { x: 5, y: 20 },
+    { x: 5, y: 18 },
     { x: 6, y: 19 },
-    { x: 7, y: 14 },
+    { x: 7, y: 21 },
     { x: 8, y: 22 },
-    { x: 9, y: 13 },
-    { x: 10, y: 20 },
-    { x: 11, y: 18 }
+    { x: 9, y: 16 },
+    { x: 10, y: 15 },
+    { x: 11, y: 14 },
+    { x: 12, y: 17 },
+    { x: 13, y: 19 },
+    { x: 14, y: 20 },
+    { x: 15, y: 18 },
+    { x: 16, y: 21}
   ]
 
   const [figures, setFigures] = useState(defaultValue);
@@ -48,7 +51,12 @@ function SelfHealingChart ({ flags, ldClient }) {
     { x: 7, y: threshold },
     { x: 8, y: threshold },
     { x: 9, y: threshold },
-    { x: 10, y: threshold }
+    { x: 10, y: threshold },
+    { x: 11, y: threshold },
+    { x: 12, y: threshold },
+    { x: 13, y: threshold },
+    { x: 14, y: threshold },
+    { x: 15, y: threshold }
   ]
 
   // Used to tell the chart to rerender
@@ -87,7 +95,7 @@ function SelfHealingChart ({ flags, ldClient }) {
         newPlotData[i].x = newNumber;
       }
     } else {
-      newPlotData.push({ x: newCount, y: getRandomNumber(13, 24) })
+      newPlotData.push({ x: newCount, y: getRandomNumber(14, 21) })
       for (let i = 0; i < newPlotData.length; i++) {
         const newNumber = Number(newPlotData[i].x) - 1;
         newPlotData[i].x = newNumber;
@@ -113,6 +121,7 @@ function SelfHealingChart ({ flags, ldClient }) {
     return function cleanup() {
       clearInterval(chartLoop);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
 
@@ -121,7 +130,7 @@ function SelfHealingChart ({ flags, ldClient }) {
   return flags.showMonitoringChart ? (
     <div>
     <VictoryChart
-    domain={{ x: [1, 10], y:[0, 100]}}
+    domain={{ x: [1, 15], y:[0, 100]}}
     externalEventMutations={mutateChart}
     >
       <VictoryLabel 
@@ -149,10 +158,16 @@ function SelfHealingChart ({ flags, ldClient }) {
         ]}
       />
       <VictoryAxis dependentAxis/>
-      <VictoryLine
+      <VictoryArea
         name = "dataLine"
         data = {figures}
+        interpolation="monotoneX"
         animate={{easing: "linear", duration: 1000}}
+        style={{
+          data: {
+            fill: "#405BFF", fillOpacity: 0.8, strokeWidth: 3
+          },
+        }}
       />
       <VictoryLine
         name = "thresholdLine"
