@@ -1,7 +1,7 @@
 {
   "name": "react_node_ff",
   "version": "0.1.0",
-  "homepage": "https://launchdarkly-labs.github.io/react_qr_app_ld_beginners/",
+  "homepage": "/react_qr_app_ld_beginners/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
