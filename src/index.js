@@ -14,13 +14,12 @@ let id = getUserId();
 (async () => {
   const LDProvider = await asyncWithLDProvider({
     clientSideID: CLIENTKEY,
-    user: {
+    context: {
+      kind: "device",
       key: id,
       //dynamically set these custom attributes using the deviceType and osName selectors from the npm package
-      custom: {
-        device: deviceType,
-        operatingSystem: osName,
-      },
+      type: deviceType,
+      os: osName
     },
   });
 
