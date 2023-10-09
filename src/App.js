@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { useFlags } from "launchdarkly-react-client-sdk";
 import { addResponseMessage } from 'react-chat-widget';
-import Chatbot from "./components/chatbot";
 import QRCode from "./components/qrCode";
 import HeaderLDLogo from "./components/headerLogo";
 import Heart from "./components/heart";
@@ -44,9 +43,6 @@ function App() {
         <QRCode />
         <br />
         <Astronaut />
-        <div className="chatbot">
-          <Chatbot />
-        </div>
       </div>
     </div>
   );
