@@ -9,9 +9,8 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^1.1.3",
     "gh-pages": "^3.2.3",
-    "launchdarkly-js-client-sdk": "^2.20.0",
-    "launchdarkly-node-server-sdk": "^6.2.0",
-    "launchdarkly-react-client-sdk": "^2.23.3",
+    "launchdarkly-js-client-sdk": "^3.8.1",
+    "launchdarkly-react-client-sdk": "^3.8.1",
     "local-storage": "^2.0.0",
     "react": "^17.0.2",
     "react-chat-widget": "^3.1.4",
@@ -25,8 +24,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
