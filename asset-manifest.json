@@ -1,20 +1,16 @@
 {
   "files": {
-    "main.css": "/react_qr_app/static/css/main.ff72cb29.css",
-    "main.js": "/react_qr_app/static/js/main.ec679a7d.js",
-    "static/js/496.3c0f4b74.chunk.js": "/react_qr_app/static/js/496.3c0f4b74.chunk.js",
+    "main.css": "/react_qr_app/static/css/main.879a7cc4.css",
+    "main.js": "/react_qr_app/static/js/main.4a258fdc.js",
     "static/media/astronaut.png": "/react_qr_app/static/media/astronaut.1d752285128b052f17fb.png",
-    "static/media/astronaut_old.png": "/react_qr_app/static/media/astronaut_old.09554e178415a8bfc0f6.png",
     "static/media/ld_logo_white_old.png": "/react_qr_app/static/media/ld_logo_white_old.a7492e3d4eeb3e04a651.png",
     "static/media/ld_logo_white.png": "/react_qr_app/static/media/ld_logo_white.c7ccd94b41333f877744.png",
     "index.html": "/react_qr_app/index.html",
-    "static/media/heart.svg": "/react_qr_app/static/media/heart.448e45f9ab7caffa1ed94a1ca992ca56.svg",
-    "main.ff72cb29.css.map": "/react_qr_app/static/css/main.ff72cb29.css.map",
-    "main.ec679a7d.js.map": "/react_qr_app/static/js/main.ec679a7d.js.map",
-    "496.3c0f4b74.chunk.js.map": "/react_qr_app/static/js/496.3c0f4b74.chunk.js.map"
+    "main.879a7cc4.css.map": "/react_qr_app/static/css/main.879a7cc4.css.map",
+    "main.4a258fdc.js.map": "/react_qr_app/static/js/main.4a258fdc.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff72cb29.css",
-    "static/js/main.ec679a7d.js"
+    "static/css/main.879a7cc4.css",
+    "static/js/main.4a258fdc.js"
   ]
 }
