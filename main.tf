@@ -27,6 +27,21 @@ variable "project_key" {
   type = string
 }
 
+variable "environment_key" {
+    type = string
+}
+
+variable "customer_logo_url" {
+    type = string
+}
+
+variable "other_logo_url" {
+    type = string
+}
+
+variable "qr_code_os_targets" {
+    type = list(string)
+ }
 provider "launchdarkly" {
   access_token =  var.access_token
 }
@@ -123,7 +138,8 @@ resource "launchdarkly_feature_flag" "release_new_ui" {
   }
 
   tags = [
-    "release"
+    "release",
+    "QR"
   ]
 }
 
@@ -195,11 +211,11 @@ resource "launchdarkly_feature_flag" "config_customer_logo" {
 
   variation_type = "string"
   variations {
-    value       = "https://www.link_to_your_logo.png"
+    value       = var.customer_logo_url
     name        = "Our Logo"
   }
   variations {
-    value       = "https://www.link_to_another_image.png"
+    value       = var.other_logo_url
     name        = "Some Other Image"
   }
 
@@ -376,3 +392,115 @@ resource "launchdarkly_feature_flag" "release_chatbot" {
     "QR"
   ]
 }
+
+resource "launchdarkly_feature_flag_environment" "release_heart_env" {
+    flag_id = "${var.project_key}/${launchdarkly_feature_flag.release_heart.key}"
+    env_key = var.environment_key
+
+    on = true
+
+    prerequisites {
+        flag_key = launchdarkly_feature_flag.release_new_ui.key
+        variation = 0
+        }
+    fallthrough {
+        variation = 0
+        }
+    off_variation = 1
+    }
+
+resource "launchdarkly_feature_flag_environment" "show_customer_logo_env"{
+    flag_id = "${var.project_key}/${launchdarkly_feature_flag.show_customer_logo.key}"
+    env_key = var.environment_key
+
+    on = true
+
+    prerequisites {
+        flag_key = launchdarkly_feature_flag.release_new_ui.key
+        variation = 0
+        }
+    fallthrough {
+        variation = 0
+        }
+    off_variation = 1
+    }
+
+
+resource "launchdarkly_feature_flag_environment" "release_astronaut_env" {
+    flag_id = "${var.project_key}/${launchdarkly_feature_flag.release_astronaut.key}"
+    env_key = var.environment_key
+
+    on = true
+
+    prerequisites {
+        flag_key = launchdarkly_feature_flag.release_new_ui.key
+        variation = 0
+        }
+    fallthrough {
+        variation = 0
+        }
+    off_variation = 1
+    }
+
+resource "launchdarkly_feature_flag_environment" "release_header_logo_env"{
+    flag_id = "${var.project_key}/${launchdarkly_feature_flag.release_header_logo.key}"
+    env_key = var.environment_key
+
+    on = true
+
+    prerequisites {
+        flag_key = launchdarkly_feature_flag.release_new_ui.key
+        variation = 0
+        }
+    fallthrough {
+        variation = 0
+        }
+    off_variation = 1
+    }
+
+resource "launchdarkly_feature_flag_environment" "config_background_color_env"{
+    flag_id = "${var.project_key}/${launchdarkly_feature_flag.config_background_color.key}"
+    env_key = var.environment_key
+
+    on = true
+    prerequisites {
+        flag_key = launchdarkly_feature_flag.release_new_ui.key
+        variation = 0
+        }
+    fallthrough {
+        variation = 2
+        }
+    off_variation = 0
+    }
+
+resource "launchdarkly_feature_flag_environment" "show_qr_code_env"{
+    flag_id = "${var.project_key}/${launchdarkly_feature_flag.show_qr_code.key}"
+    env_key = var.environment_key
+
+    on = true
+    rules {
+        clauses {
+            attribute = "operatingSystem"
+            op = "in"
+            values = var.qr_code_os_targets
+            negate = false
+            }
+        variation = 0
+        }
+    fallthrough {
+        variation = 1
+        }
+    off_variation = 1
+    }
+
+resource "launchdarkly_feature_flag_environment" "config_customer_logo_env"{
+    flag_id = "${var.project_key}/${launchdarkly_feature_flag.config_customer_logo.key}"
+    env_key = var.environment_key
+
+    on = true
+
+    fallthrough {
+        variation = 0
+        }
+    off_variation = 1
+    }
