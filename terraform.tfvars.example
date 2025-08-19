@@ -3,3 +3,15 @@ access_token = "ACCESS_TOKEN_GOES_HERE"
 
 // Key of the LaunchDarkly project wot flags go into
 project_key = "PROJECT_KEY_GOES_HERE"
+
+// Key of the environment intended to be used for the app. e.g., "production"
+environment_key = "ENVIRONMENT_KEY_GOES_HERE"
+
+// URL of two different logos to display. "customer_logo_url" is the on variation
+// "other_logo_url" is the off variation
+customer_logo_url = "https://www.link_to_your_logo.png"
+other_logo_url = "https://www.link_to_another_image.png"
+
+// To ensure QR code is shown only to someone on Desktop (therefore not to people scanning
+// with their phone, set a list of OSs to target)
+qr_code_os_targets = ["Mac OS", "Windows", "Linux"]
